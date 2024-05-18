@@ -1,6 +1,7 @@
 import { addDoc, collection, getDocs, query, where } from 'firebase/firestore'
 import React from 'react'
 import firestoreDatabase from './firebaseConfig'
+import CryptoJS from 'crypto-js'
 
 export interface Values {
     name: string,

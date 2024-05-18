@@ -13,8 +13,8 @@ export let routes: Routes[] = [
         name: "Inscription"
     },
     {
-        path: "/page1",
-        name: "Page1"
+        path: "/connexion",
+        name: "Connexion"
     },
     {
         path: "/page2",

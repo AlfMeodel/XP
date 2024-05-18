@@ -2,21 +2,20 @@ import { Button, Form, Input, message } from 'antd'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { CreateUsers, UserResponse, Values } from '../components/firebase/Users'
+import { CreateUsers, LoginUsers, UserResponse, Values } from '../components/firebase/Users'
 
-const Inscription = () => {
+const Connexion = () => {
 
     let navigate = useNavigate()
 
     let onFinish = async (values: unknown) => {
         try {
             let valuesProps = values as Values
-            let response = await CreateUsers(valuesProps) as UserResponse
+            let response = await LoginUsers(valuesProps) as UserResponse
 
             if (response.validation) {
                 message.success(response.message)
-                navigate("/connexion")
-
+                navigate("/")
             } else {
                 throw new Error(response.message)
             }
@@ -30,15 +29,6 @@ const Inscription = () => {
         <Backy>
             <Formulaire>
                 <AForm onFinish={onFinish}>
-                    <FormSection>
-                        <FormTitle>
-                            Nom
-                        </FormTitle>
-
-                        <AFormItem label="name" name="name" noStyle>
-                            <AInput placeholder='Name ..' />
-                        </AFormItem>
-                    </FormSection>
 
                     <FormSection>
                         <FormTitle>
@@ -61,7 +51,7 @@ const Inscription = () => {
                     </FormSection>
 
                     <ASubmitBtn htmlType='submit'>
-                        Inscription
+                        Connexion
                     </ASubmitBtn>
 
                 </AForm>
@@ -70,7 +60,7 @@ const Inscription = () => {
     )
 }
 
-export default Inscription
+export default Connexion
 
 //ANTD MEF
 

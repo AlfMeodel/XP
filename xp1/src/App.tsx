@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home';
 import Navigation from './components/navigation/Navigation';
 import Inscription from './pages/Inscription';
+import Connexion from './pages/Connexion';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/inscription' element={<Inscription />} />
+          <Route path='/connexion' element={<Connexion />} />
         </Routes>
       </Router>
 
