@@ -3,16 +3,20 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { CreateUsers, UserResponse, Values } from '../components/firebase/Users'
+import { useDispatch } from 'react-redux'
+import { AfficherSpiner } from '../redux/chargementSlice'
 
 const Inscription = () => {
 
     let navigate = useNavigate()
+    let dispatch = useDispatch()
 
     let onFinish = async (values: unknown) => {
         try {
             let valuesProps = values as Values
+            dispatch(AfficherSpiner(true))
             let response = await CreateUsers(valuesProps) as UserResponse
-
+            dispatch(AfficherSpiner(false))
             if (response.validation) {
                 message.success(response.message)
                 navigate("/connexion")

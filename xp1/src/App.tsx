@@ -5,10 +5,15 @@ import Home from './pages/Home';
 import Navigation from './components/navigation/Navigation';
 import Inscription from './pages/Inscription';
 import Connexion from './pages/Connexion';
+import { useSelector } from 'react-redux';
+import { ChargementInterface } from './redux/chargementSlice';
+import Spiner from './redux/Spiner';
 
 function App() {
+  let { chargement } = useSelector((state: { chargementStore: ChargementInterface }) => state.chargementStore)
   return (
     <div className="App">
+      {chargement && <Spiner />}
       <Router>
         <Navigation />
         <Routes>
