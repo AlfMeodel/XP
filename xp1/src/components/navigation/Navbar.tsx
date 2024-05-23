@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
+import { FiLogIn } from 'react-icons/fi'
 import { Routes } from './Navlinks';
+import ProtectedRoutes from '../protected/ProtectedRoutes'
+
 
 interface Navprops {
     routes: Routes[]
@@ -32,6 +35,12 @@ const Navbar: React.FC<Navprops> = ({ routes }) => {
 
                     }
                 </Navroutes>
+                <ProtectedRoutes>
+                    <NavLog>
+                        <FiLogIn />
+                    </NavLog>
+                </ProtectedRoutes>
+
 
             </RightNav>
         </Nav>
@@ -39,6 +48,19 @@ const Navbar: React.FC<Navprops> = ({ routes }) => {
 }
 
 export default Navbar
+
+let NavLog = styled.div`
+font-size: 2em;
+margin-right: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.3S ease-in-out;
+
+&:hover{
+    transform: scale(1.05);
+}
+`
 
 let Nav = styled.div`
 background-color: #000000bb;
@@ -98,7 +120,7 @@ align-items: center;
 text-decoration: none;
 font-size: 1.2em;
 color: white;
-margin-left: 20px;
+margin-right: 20px;
 padding: 5px 10px;
 border: 1px solid white;
 border-radius: 9px;
