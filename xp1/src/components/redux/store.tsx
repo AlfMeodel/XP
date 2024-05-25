@@ -1,8 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { chargementSlice } from "./chargementSlice";
+import rootReducer from "./rootReducer";
 
 export let store = configureStore({
-    reducer: {
-        chargementStore: chargementSlice.reducer
-    }
+    reducer: rootReducer
 })

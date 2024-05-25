@@ -9,7 +9,7 @@ let initialState: ProtectedInterface = {
 }
 
 let protectedSlice = createSlice({
-    name: "protectedStore",
+    name: "protected",
     initialState, reducers: {
         Login: (state) => {
             state.protected = true

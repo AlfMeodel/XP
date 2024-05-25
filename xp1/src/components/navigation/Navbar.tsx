@@ -5,6 +5,8 @@ import { FaBars } from 'react-icons/fa'
 import { FiLogIn } from 'react-icons/fi'
 import { Routes } from './Navlinks';
 import ProtectedRoutes from '../protected/ProtectedRoutes'
+import { useDispatch } from 'react-redux'
+import { Logout } from '../redux/protectedSlice'
 
 
 interface Navprops {
@@ -12,6 +14,13 @@ interface Navprops {
 }
 
 const Navbar: React.FC<Navprops> = ({ routes }) => {
+
+    let dispatch = useDispatch()
+
+    let handleLogout = () => {
+        localStorage.removeItem('user')
+        dispatch(Logout())
+    }
     return (
         <Nav>
             <LeftNav>
@@ -36,7 +45,7 @@ const Navbar: React.FC<Navprops> = ({ routes }) => {
                     }
                 </Navroutes>
                 <ProtectedRoutes>
-                    <NavLog>
+                    <NavLog onClick={handleLogout}>
                         <FiLogIn />
                     </NavLog>
                 </ProtectedRoutes>

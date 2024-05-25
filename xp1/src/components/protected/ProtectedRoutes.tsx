@@ -1,14 +1,19 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { RootProps } from '../redux/rootReducer'
 
 interface ProtectedInterface {
     children: React.ReactNode
 }
 
+
 const ProtectedRoutes: React.FC<ProtectedInterface> = ({ children }) => {
+    let pro = useSelector((state: RootProps) => state.protectedStore.protected)
+
     return (
         <ProtectedComponents>
-            {children}
+            {pro && children}
         </ProtectedComponents>
     )
 }

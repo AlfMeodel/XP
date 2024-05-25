@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { CreateUsers, LoginUsers, UserResponse, Values } from '../components/firebase/Users'
 import { useDispatch } from 'react-redux'
 import { AfficherSpiner } from '../components/redux/chargementSlice'
+import { Login } from '../components/redux/protectedSlice'
 
 const Connexion = () => {
 
@@ -20,7 +21,14 @@ const Connexion = () => {
 
             if (response.validation) {
                 message.success(response.message)
+                localStorage.setItem("user", JSON.stringify({
+                    ...response.dataUser, password: ""
+                }))
+                dispatch(Login())
+
                 navigate("/")
+
+
             } else {
                 throw new Error(response.message)
             }
