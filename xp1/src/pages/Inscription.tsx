@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { CreateUsers, UserResponse, Values } from '../components/firebase/Users'
 import { useDispatch } from 'react-redux'
-import { AfficherSpiner } from '../redux/chargementSlice'
+import { AfficherSpiner } from '../components/redux/chargementSlice'
 
 const Inscription = () => {
 

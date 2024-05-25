@@ -6,4 +6,3 @@ export let store = configureStore({
         chargementStore: chargementSlice.reducer
     }
 })
-

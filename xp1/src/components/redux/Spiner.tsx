@@ -12,4 +12,4 @@ const Spiner = () => {
 
 export default Spiner
 
-let SpinerContainer = styled.div`` 
+let SpinerContainer = styled.div``
