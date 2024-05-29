@@ -1,7 +1,11 @@
 import { Scroll } from '@react-three/drei'
+import { doc, getDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
+import firestoreDatabase from '../firebase/firebaseConfig'
+import Spiner from '../redux/Spiner'
+import { Spin } from 'antd'
 
 interface SectionProps {
     children: React.ReactNode
@@ -80,9 +84,24 @@ const Overlay = () => {
     useEffect(() => {
         let fetchData = async () => {
             try {
+                let docRef = doc(firestoreDatabase, `/land/${currentYear}/${month}/${day}`)
+                let docSnap = await getDoc(docRef)
 
-            } catch (error) {
+                if (docSnap.exists()) {
+                    let data = docSnap.data()
+                    setEvenements(oldValues =>
+                        oldValues.map((prevState) => ({
+                            ...prevState, description: data[prevState.name] || ""
+                        }))
+                    )
+                } else {
+                    console.log('Pas de données pour cette requete')
+                }
 
+            } catch (error: any) {
+                console.error("fetch data error", error)
+            } finally {
+                setLoading(false)
             }
         }
         fetchData()
@@ -104,6 +123,28 @@ const Overlay = () => {
 
                 </Section>
 
+                {
+                    evenements.map((evenement, index) => (
+                        <Section key={index}>
+                            <SuperMenu>
+                                {
+                                    loading ? (
+                                        <Menu>
+                                            <Spin size="large" />
+                                        </Menu>
+                                    ) : (
+                                        <Menu>
+                                            {evenement.description}
+                                        </Menu>
+                                    )
+                                }
+
+                            </SuperMenu>
+                        </Section>
+                    ))
+
+                }
+
             </WidthContainer>
 
         </Scroll>
@@ -111,6 +152,14 @@ const Overlay = () => {
 }
 
 export default Overlay
+
+
+let SuperMenu = styled.div``
+
+let MiniMenu = styled.div``
+
+let Menu = styled.div``
+
 
 let WidthContainer = styled.div``
 
