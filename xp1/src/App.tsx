@@ -8,6 +8,8 @@ import Connexion from './pages/Connexion';
 import { useSelector } from 'react-redux';
 import { ChargementInterface } from './components/redux/chargementSlice';
 import Spiner from './components/redux/Spiner';
+import Calendar from './pages/Calendar';
+import LandPage from './pages/LandPage';
 
 function App() {
   let { chargement } = useSelector((state: { chargementStore: ChargementInterface }) => state.chargementStore)
@@ -20,6 +22,8 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/inscription' element={<Inscription />} />
           <Route path='/connexion' element={<Connexion />} />
+          <Route path='/calendar' element={<Calendar />} />
+          <Route path='/land/:month/:day' element={<LandPage />} />
         </Routes>
       </Router>
 

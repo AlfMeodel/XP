@@ -17,8 +17,8 @@ export let routes: Routes[] = [
         name: "Connexion"
     },
     {
-        path: "/page2",
-        name: "Page2"
+        path: "/calendar",
+        name: "Calendar"
     },
 
 
