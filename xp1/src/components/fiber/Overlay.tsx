@@ -1,5 +1,6 @@
 import { Scroll } from '@react-three/drei'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface SectionProps {
@@ -47,6 +48,47 @@ box-shadow: 3px 3px 8px black;
 `
 
 const Overlay = () => {
+
+    interface EventInterface {
+        name: string,
+        description: string,
+        edit: boolean
+    }
+
+    let { month, day } = useParams()
+
+    let [loading, setLoading] = useState(true)
+    let currentYear = new Date().getFullYear()
+    let [evenements, setEvenements] = useState<EventInterface[]>([
+        {
+            name: "evenement",
+            description: "",
+            edit: false
+        },
+        {
+            name: "section1",
+            description: "",
+            edit: false
+        },
+        {
+            name: "section2",
+            description: "",
+            edit: false
+        },
+    ])
+
+    useEffect(() => {
+        let fetchData = async () => {
+            try {
+
+            } catch (error) {
+
+            }
+        }
+        fetchData()
+    }, [month, day])
+
+
     return (
         <Scroll html>
             <WidthContainer>
