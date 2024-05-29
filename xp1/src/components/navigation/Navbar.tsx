@@ -81,6 +81,7 @@ position: fixed;
 box-shadow: 9px 9px 9px black;
 color: white;
 padding: 1% 0;
+z-index: 1;
 `
 
 let LeftNav = styled.div`

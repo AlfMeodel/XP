@@ -1,12 +1,14 @@
+import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import styled from 'styled-components'
+import Experience from '../components/fiber/Experience'
 
 const LandPage = () => {
     return (
         <Backy>
-            <Title>
-                LandPage
-            </Title>
+            <TroisD>
+                <Experience />
+            </TroisD>
         </Backy>
     )
 }
@@ -22,11 +24,6 @@ justify-content: center;
 align-items: center;
 `
 
-let Title = styled.div`
-background-color: #000000bb;
-padding: 5% 10%;
-border-radius: 10px;
-font-size: 5.5em;
-color: white;
-box-shadow: 9px 8px 8px black;
+let TroisD = styled(Canvas)`
+
 `

@@ -118,17 +118,44 @@ let SForm = styled.form``
 
 let SLabel = styled.label``
 
-let SSelect = styled.select``
+let SSelect = styled.select`
+padding: 5px 10px;
+border-radius: 9px;
+`
 
 let SOption = styled.option``
 
-let SubmitBtn = styled.button``
+let SubmitBtn = styled.button`
+padding: 8px 14px;
+border-radius: 10px;
+font-size: 1.2em;
+color: white;
+background-color: #000000b5;
+margin-top: 10px;
+border: 1px solid white;
+box-shadow: 3px 3px 9px black;
+transition: 0.3s ease-in-out;
+
+&:hover{
+    transform: scale(1.01);
+}
+`
 
 //Formulaire MEP
 
-let FormSection = styled.div``
+let FormSection = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 5px 10px;
+border: 1px solid white;
+border-radius: 10px;
+box-shadow: 3px 3px 9px black;
+`
 
-let FormTitle = styled.div``
+let FormTitle = styled.div`
+margin-right: 20px;
+`
 
 let Backy = styled.div`
 background: linear-gradient(-45deg, white 0%, blue 100%);
