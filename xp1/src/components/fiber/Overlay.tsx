@@ -63,6 +63,7 @@ const Overlay = () => {
 
     let [loading, setLoading] = useState(true)
     let currentYear = new Date().getFullYear()
+    let [oldEvenements, setOldEvenements] = useState<{ [key: string]: EventInterface | undefined }>({})
     let [evenements, setEvenements] = useState<EventInterface[]>([
         {
             name: "evenement",
@@ -107,6 +108,30 @@ const Overlay = () => {
         fetchData()
     }, [month, day])
 
+    let handleEdit = (name: string) => {
+        setEvenements(oldValues =>
+            oldValues.map((preventState) =>
+                preventState.name === name ? { ...preventState, edit: true } : preventState
+            )
+        )
+
+        setOldEvenements((prevState: { [key: string]: EventInterface | undefined }) => ({
+            ...prevState, [name]: evenements.find(state => state.name === name)
+        }))
+    }
+
+    let handleCancel = (name: string) => {
+        setEvenements(oldValues =>
+            oldValues.map((preventState) =>
+                preventState.name === name ? { ...oldEvenements[preventState.name]!, edit: false } : preventState
+            )
+        )
+    }
+
+    let handleUpdate = (name: string, description: string) => {
+
+    }
+
 
     return (
         <Scroll html>
@@ -138,6 +163,30 @@ const Overlay = () => {
                                         </Menu>
                                     )
                                 }
+                                <Menu>
+                                    {
+                                        evenement.edit ? (
+                                            <MiniMenu>
+                                                <Textarea />
+
+                                                <BtnContainer>
+                                                    <EditBtn onClick={() => handleUpdate(evenement.name, evenement.description)}>
+                                                        Modifier
+                                                    </EditBtn>
+                                                    <EditBtn onClick={() => handleCancel(evenement.name)}>
+                                                        Annuler
+                                                    </EditBtn>
+                                                </BtnContainer>
+                                            </MiniMenu>
+                                        ) : (
+                                            <MiniMenu>
+                                                <EditBtn onClick={() => handleEdit(evenement.name)}>
+                                                    Modifier
+                                                </EditBtn>
+                                            </MiniMenu>
+                                        )
+                                    }
+                                </Menu>
 
                             </SuperMenu>
                         </Section>
@@ -153,6 +202,27 @@ const Overlay = () => {
 
 export default Overlay
 
+let EditBtn = styled.button`
+background-color: #000000d8;
+color: white;
+font-size: 1.2em;
+padding: 7px 12px;
+margin-top: 8px;
+border-radius: 9px;
+
+transition: 0.3s ease-in-out;
+&:hover{
+    transform: scale(1.03);
+}
+`
+
+let Textarea = styled.textarea`
+padding: 5% 10%;
+border-radius: 7px;
+margin-top: 8px;
+`
+
+let BtnContainer = styled.div``
 
 let SuperMenu = styled.div``
 
