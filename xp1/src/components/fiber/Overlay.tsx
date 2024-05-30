@@ -1,5 +1,5 @@
 import { Scroll } from '@react-three/drei'
-import { doc, getDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
@@ -128,8 +128,27 @@ const Overlay = () => {
         )
     }
 
-    let handleUpdate = (name: string, description: string) => {
+    let handleUpdate = async (name: string, description: string) => {
+        try {
+            let docRef = doc(firestoreDatabase, `/land/${currentYear}/${month}/${day}`)
+            let docSnap = await getDoc(docRef)
 
+            if (docSnap.exists()) {
+                await updateDoc(docRef, { [name]: description })
+            } else {
+                await setDoc(docRef, { [name]: description })
+                let addDefaultMonth = collection(firestoreDatabase, `/land/${currentYear}/${month}/${day}`)
+                await addDoc(addDefaultMonth, {})
+            }
+            setEvenements(oldValues =>
+                oldValues.map((current_event) =>
+                    current_event.name === name ? { ...current_event, edit: false, description } : current_event
+                )
+            )
+
+        } catch (error) {
+            console.error("fetch data error :", error)
+        }
     }
 
 
@@ -167,7 +186,11 @@ const Overlay = () => {
                                     {
                                         evenement.edit ? (
                                             <MiniMenu>
-                                                <Textarea />
+                                                <Textarea value={evenement.description} onChange={(e) => setEvenements(oldValues =>
+                                                    oldValues.map((current_event) =>
+                                                        current_event.name === evenement.name ? { ...current_event, description: e.target.value } : current_event
+                                                    )
+                                                )} />
 
                                                 <BtnContainer>
                                                     <EditBtn onClick={() => handleUpdate(evenement.name, evenement.description)}>
