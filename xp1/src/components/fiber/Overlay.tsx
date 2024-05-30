@@ -186,11 +186,12 @@ const Overlay = () => {
                                     {
                                         evenement.edit ? (
                                             <MiniMenu>
-                                                <Textarea value={evenement.description} onChange={(e) => setEvenements(oldValues =>
-                                                    oldValues.map((current_event) =>
-                                                        current_event.name === evenement.name ? { ...current_event, description: e.target.value } : current_event
-                                                    )
-                                                )} />
+                                                <Textarea value={evenement.description} onChange={(e) => {
+                                                    const newEvenements = [...evenements];
+                                                    const index = newEvenements.findIndex((event) => event.name === evenement.name);
+                                                    newEvenements[index].description = e.target.value;
+                                                    setEvenements(newEvenements);
+                                                }} />
 
                                                 <BtnContainer>
                                                     <EditBtn onClick={() => handleUpdate(evenement.name, evenement.description)}>
