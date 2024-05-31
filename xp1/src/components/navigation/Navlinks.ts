@@ -20,6 +20,9 @@ export let routes: Routes[] = [
         path: "/calendar",
         name: "Calendar"
     },
-
+    {
+        path: "/pokemonpage",
+        name: "Combat Pokemon"
+    },
 
 ]

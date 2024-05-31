@@ -158,17 +158,7 @@ const Overlay = () => {
     return (
         <Scroll html>
             <WidthContainer>
-                <Section>
-                    <Title>
-                        Titre
-                    </Title>
-                    <Texte>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
-                    </Texte>
 
-                </Section>
 
                 {
                     evenements.map((evenement, index) => (
@@ -220,6 +210,18 @@ const Overlay = () => {
                     ))
 
                 }
+
+                <Section>
+                    <Title>
+                        Titre
+                    </Title>
+                    <Texte>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
+                    </Texte>
+
+                </Section>
 
             </WidthContainer>
 

@@ -10,6 +10,7 @@ import { ChargementInterface } from './components/redux/chargementSlice';
 import Spiner from './components/redux/Spiner';
 import Calendar from './pages/Calendar';
 import LandPage from './pages/LandPage';
+import PokemonPage from './pages/PokemonPage';
 
 function App() {
   let { chargement } = useSelector((state: { chargementStore: ChargementInterface }) => state.chargementStore)
@@ -24,6 +25,7 @@ function App() {
           <Route path='/connexion' element={<Connexion />} />
           <Route path='/calendar' element={<Calendar />} />
           <Route path='/land/:month/:day' element={<LandPage />} />
+          <Route path='pokemonpage' element={<PokemonPage />} />
         </Routes>
       </Router>
 
