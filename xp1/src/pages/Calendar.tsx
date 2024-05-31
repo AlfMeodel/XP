@@ -29,6 +29,38 @@ const Calendar = () => {
             value: "04",
             name: "Avril"
         },
+        {
+            value: "05",
+            name: "Mai"
+        },
+        {
+            value: "06",
+            name: "Juin"
+        },
+        {
+            value: "07",
+            name: "Juillet"
+        },
+        {
+            value: "08",
+            name: "Aout"
+        },
+        {
+            value: "09",
+            name: "Septembre"
+        },
+        {
+            value: "10",
+            name: "Octobre"
+        },
+        {
+            value: "11",
+            name: "Novembre"
+        },
+        {
+            value: "12",
+            name: "Decembre"
+        },
     ]
 
     let days = Array.from({ length: 31 }, (_, i) => i + 1)
