@@ -78,7 +78,9 @@ export default Inscription
 
 //ANTD MEF
 
-let FormSection = styled.div``
+let FormSection = styled.div`
+
+`
 
 let FormTitle = styled.div`
 color: white;
@@ -94,7 +96,10 @@ let AForm = styled(Form)``
 
 let AFormItem = styled(Form.Item)``
 
-let AInput = styled(Input)``
+let AInput = styled(Input)`
+z-index: 0;
+
+`
 
 let ASubmitBtn = styled(Button)`
 margin-top: 15px;

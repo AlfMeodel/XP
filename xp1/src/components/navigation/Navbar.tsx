@@ -10,10 +10,11 @@ import { Logout } from '../redux/protectedSlice'
 
 
 interface Navprops {
-    routes: Routes[]
+    routes: Routes[],
+    interrupteur: () => void
 }
 
-const Navbar: React.FC<Navprops> = ({ routes }) => {
+const Navbar: React.FC<Navprops> = ({ routes, interrupteur }) => {
 
     let dispatch = useDispatch()
 
@@ -25,7 +26,7 @@ const Navbar: React.FC<Navprops> = ({ routes }) => {
         <Nav>
             <LeftNav>
                 <NavDrawer>
-                    <FaBars />
+                    <FaBars onClick={interrupteur} />
                 </NavDrawer>
                 <NavLogo>
                     LOGO
