@@ -183,6 +183,7 @@ padding: 5px 10px;
 border: 1px solid white;
 border-radius: 10px;
 box-shadow: 3px 3px 9px black;
+margin-top: 10px;
 `
 
 let FormTitle = styled.div`

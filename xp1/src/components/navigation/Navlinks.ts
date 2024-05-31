@@ -22,7 +22,7 @@ export let routes: Routes[] = [
     },
     {
         path: "/pokemonpage",
-        name: "Combat Pokemon"
+        name: "Pokemon"
     },
 
 ]

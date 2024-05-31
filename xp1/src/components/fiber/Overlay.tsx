@@ -170,9 +170,9 @@ const Overlay = () => {
                                             <Spin size="large" />
                                         </Menu>
                                     ) : (
-                                        <Menu>
+                                        <DisplayMenu>
                                             {evenement.description}
-                                        </Menu>
+                                        </DisplayMenu>
                                     )
                                 }
                                 <Menu>
@@ -266,7 +266,24 @@ let SuperMenu = styled.div``
 
 let MiniMenu = styled.div``
 
-let Menu = styled.div``
+let Menu = styled.div`
+/* padding-bottom: 20px;
+border-radius: 10px;
+border: 1px solid black;
+margin-top: 10px; */
+`
+
+let DisplayMenu = styled.div`
+padding-bottom: 20px;
+border-radius: 10px;
+border: 1px solid black;
+margin-top: 10px;
+padding: 5px 10px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 20px;
+`
 
 
 let WidthContainer = styled.div``
