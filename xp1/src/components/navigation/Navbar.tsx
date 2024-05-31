@@ -104,6 +104,10 @@ align-items: center;
 font-size: 2em;
 color: white;
 margin-left: 20px;
+
+@media (min-width:750px){
+    display: none;
+}
 `
 
 let NavLogo = styled.div`
@@ -120,6 +124,10 @@ let Navroutes = styled.div`
 display: flex;
 justify-content: space-around;
 align-items: center;
+
+@media (max-width:750px){
+    display: none;
+}
 `
 
 let Navroute = styled(Link)`
