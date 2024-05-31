@@ -28,12 +28,20 @@ interface NodesProps {
 export let ETAGE_NOMBRE = 3
 export let ETAGE_TAILLE = 2.6
 
+export let degreesToRadians = (degrees: number) => {
+  return degrees * (Math.PI / 180)
+}
 
 export function ModelOffice(props: ModelProps) {
   const { nodes, materials } = useGLTF('/models/WawaOffice.glb') as GLTFTypes
   let wholeRef = useRef<THREE.Group | null>(null)
+  let object1 = useRef<THREE.Group | null>(null)
+  let object2 = useRef<THREE.Group | null>(null)
+  let object3 = useRef<THREE.Group | null>(null)
+
   let scroll = useScroll()
   let tl = useRef<gsap.core.Timeline | null>(null)
+
 
   useFrame(() => {
     if (tl.current) {
@@ -51,6 +59,31 @@ export function ModelOffice(props: ModelProps) {
       }, 0
       )
     }
+    if (object3.current) {
+      tl.current.to(
+        object3.current.rotation, {
+        duration: 2,
+        x: 0,
+        y: 0,
+        z: 0,
+      }, 0
+      )
+    }
+
+    if (object1.current) {
+      tl.current.to(
+        object1.current.rotation, {
+        duration: 2,
+        x: 0,
+        y: degreesToRadians(-90),
+        z: 0,
+      }, 0
+      )
+    }
+
+
+
+
   }, [])
 
 
@@ -58,22 +91,22 @@ export function ModelOffice(props: ModelProps) {
   return (
     <group {...props} dispose={null} ref={wholeRef}>
 
-      <group>
-        <group>
+      <group >
+        <group ref={object1}>
           <mesh geometry={nodes['01_office'].geometry} material={materials['01']} />
 
         </group>
       </group>
 
       <group>
-        <group>
+        <group ref={object2}>
           <mesh geometry={nodes['02_library'].geometry} material={materials['02']} position={[0, 2.114, -2.23]} />
 
         </group>
       </group>
 
       <group>
-        <group>
+        <group ref={object3}>
           <mesh geometry={nodes['03_attic'].geometry} material={materials['03']} position={[-1.97, 4.227, -2.199]} />
 
         </group>
