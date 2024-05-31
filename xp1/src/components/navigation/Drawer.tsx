@@ -14,7 +14,7 @@ const Drawer: React.FC<DrawerInterface> = ({ routes, ouverture, interrupteur }) 
         <>
             {ouverture && <Backdrop onClick={interrupteur} />}
 
-            <SDrawer ouverture={ouverture}>
+            <SDrawer $ouverture={ouverture}>
                 <Navroutes>
                     {
                         routes.map((route) => {
@@ -45,7 +45,7 @@ background-color: #000000db;
 z-index: 1;
 `
 
-let SDrawer = styled.div<{ ouverture: boolean }>`
+let SDrawer = styled.div<{ $ouverture: boolean }>`
 background-color: #f0f8ffc1;
 position: fixed;
 width: 50%;
@@ -53,7 +53,7 @@ height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
-transform: translateX(${(props: { ouverture: boolean }) => (props.ouverture ? "0" : "-100%")});
+transform: translateX(${(props: { $ouverture: boolean }) => (props.$ouverture ? "0" : "-100%")});
 transition: 0.3s ease-in-out;
 z-index: 2;
 `

@@ -38,13 +38,16 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 50%;
+@media (max-width:750px){
+    width: 100%;
+}
 `
 
 let Item = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 50%;
+width: 80%;
 background-color: white;
 border-radius: 10px;
 padding: 5%;
@@ -233,6 +236,7 @@ font-size: 1.2em;
 padding: 7px 12px;
 margin-top: 8px;
 border-radius: 9px;
+margin: 0 10px;
 
 transition: 0.3s ease-in-out;
 &:hover{
@@ -244,9 +248,17 @@ let Textarea = styled.textarea`
 padding: 5% 10%;
 border-radius: 7px;
 margin-top: 8px;
+
+@media (max-width:750px){
+    padding: 5% 0;
+margin-top: 8px;
+}
 `
 
-let BtnContainer = styled.div``
+let BtnContainer = styled.div`
+display: flex;
+
+`
 
 let SuperMenu = styled.div``
 
