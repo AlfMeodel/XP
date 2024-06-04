@@ -77,8 +77,17 @@ const Calendar = () => {
     return (
         <Backy>
             <Formulaire>
+                <FormulaireTitle>
+                    Calendar
+                </FormulaireTitle>
+
+                <FormulaireDescription>
+                    Indiquez le Jour ainsi que votre Mois de Naissance
+                </FormulaireDescription>
+
 
                 <SForm onSubmit={handleSubmit}>
+
                     <FormSection>
                         <FormTitle>
                             Mois :
@@ -186,6 +195,7 @@ box-shadow: 3px 3px 9px black;
 margin-top: 10px;
 `
 
+
 let FormTitle = styled.div`
 margin-right: 20px;
 `
@@ -205,4 +215,14 @@ padding: 5% 10%;
 border-radius: 10px;
 color: white;
 box-shadow: 9px 8px 8px black;
+`
+
+let FormulaireDescription = styled.div``
+
+let FormulaireTitle = styled.div`
+font-size: 2em;
+background-color: #00000063;
+padding: 2% 3%;
+border-radius: 15px;
+margin-bottom: 10px;
 `

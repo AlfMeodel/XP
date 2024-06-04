@@ -37,7 +37,7 @@ let Element = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 50%;
+width: 60%;
 @media (max-width:750px){
     width: 100%;
 }
@@ -47,6 +47,7 @@ let Item = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 width: 80%;
 background-color: white;
 border-radius: 10px;
@@ -158,7 +159,16 @@ const Overlay = () => {
     return (
         <Scroll html>
             <WidthContainer>
+                <Section>
+                    <Title>
+                        Votre page Anniversaire
+                    </Title>
+                    <Texte>
+                        Ajoutez des données pour le jour de votre anniversaire
+                        ( Vous pouvez Annuler les modifications à tout moment)
+                    </Texte>
 
+                </Section>
 
                 {
                     evenements.map((evenement, index) => (
@@ -211,17 +221,7 @@ const Overlay = () => {
 
                 }
 
-                <Section>
-                    <Title>
-                        Titre
-                    </Title>
-                    <Texte>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, quisquam.
-                    </Texte>
 
-                </Section>
 
             </WidthContainer>
 
@@ -288,6 +288,19 @@ margin-bottom: 20px;
 
 let WidthContainer = styled.div``
 
-let Title = styled.div``
+let Title = styled.div`
+background-color: #000000bb;
+width: 100%;
+padding: 5px 10px;
+color: white;
+border-radius: 10px;
+`
 
-let Texte = styled.div``
+let Texte = styled.div`
+margin-top: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+
+`
