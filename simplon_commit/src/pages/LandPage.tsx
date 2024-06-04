@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import styled from 'styled-components'
-import Experience from '../components/fiber/Experience'
+import Experience from '../components/scroll3D/Experience_Office'
 
 const LandPage = () => {
     return (

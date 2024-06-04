@@ -1,5 +1,5 @@
 import React from 'react'
-import { ModelOffice } from './WawaOffice'
+import { ModelOffice } from './Office'
 import { ScrollControls } from '@react-three/drei'
 import Overlay from './Overlay'
 

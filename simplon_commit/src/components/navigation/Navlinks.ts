@@ -8,14 +8,7 @@ export let routes: Routes[] = [
         path: "/",
         name: "Home"
     },
-    {
-        path: "/inscription",
-        name: "Inscription"
-    },
-    {
-        path: "/connexion",
-        name: "Connexion"
-    },
+
     {
         path: "/calendar",
         name: "Calendar"
@@ -23,6 +16,10 @@ export let routes: Routes[] = [
     {
         path: "/pokemonpage",
         name: "Pokemon"
+    },
+    {
+        path: "/troisD",
+        name: "TroisD"
     },
 
 ]

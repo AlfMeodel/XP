@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { FaBars } from 'react-icons/fa'
 import { FiLogIn } from 'react-icons/fi'
+import { FaUser } from 'react-icons/fa'
 import { Routes } from './Navlinks';
 import ProtectedRoutes from '../protected/ProtectedRoutes'
 import { useDispatch } from 'react-redux'
@@ -45,6 +46,10 @@ const Navbar: React.FC<Navprops> = ({ routes, interrupteur }) => {
 
                     }
                 </Navroutes>
+
+                <NavUser to="/connexion" key="connexionUser">
+                    <FaUser />
+                </NavUser>
                 <ProtectedRoutes>
                     <NavLog onClick={handleLogout}>
                         <FiLogIn />
@@ -58,6 +63,21 @@ const Navbar: React.FC<Navprops> = ({ routes, interrupteur }) => {
 }
 
 export default Navbar
+
+let NavUser = styled(Link)`
+display: flex;
+justify-content: center;
+align-items: center;
+
+font-size: 1.8em;
+color: white;
+margin-right: 20px;
+transition: 0.3s ease-in-out;
+
+&:hover{
+    transform: scale(1.05);
+}
+`
 
 let NavLog = styled.div`
 font-size: 2em;

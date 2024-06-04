@@ -1,6 +1,6 @@
 import { Button, Form, Input, message } from 'antd'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { CreateUsers, UserResponse, Values } from '../components/firebase/Users'
 import { useDispatch } from 'react-redux'
@@ -34,6 +34,11 @@ const Inscription = () => {
         <Backy>
             <Formulaire>
                 <AForm onFinish={onFinish}>
+
+                    <FormMainTitle>
+                        Connexion
+                    </FormMainTitle>
+
                     <FormSection>
                         <FormTitle>
                             Nom
@@ -64,9 +69,13 @@ const Inscription = () => {
                         </AFormItem>
                     </FormSection>
 
-                    <ASubmitBtn htmlType='submit'>
+                    <ASubmitBtn htmlType='submit' ghost>
                         Inscription
                     </ASubmitBtn>
+
+                    <FormLink to="/inscription" key="inscriptionBtn">
+                        Pas encore de compte ? inscrivez vous
+                    </FormLink>
 
                 </AForm>
             </Formulaire>
@@ -77,6 +86,23 @@ const Inscription = () => {
 export default Inscription
 
 //ANTD MEF
+
+
+let FormMainTitle = styled.div`
+background-color: #00000055;
+box-shadow:inset 4px 4px 4px black;
+color: white;
+padding: 5% 10%;
+border-radius: 8px;
+font-size: 2em;
+margin-bottom: 20px;
+`
+
+let FormLink = styled(Link)`
+text-decoration: none;
+color: white;
+margin-top: 15px;
+`
 
 let FormSection = styled.div`
 
@@ -92,7 +118,10 @@ align-items: center;
 
 //ANTD MECA
 
-let AForm = styled(Form)``
+let AForm = styled(Form)`
+display: flex;
+flex-direction: column;
+`
 
 let AFormItem = styled(Form.Item)``
 
@@ -102,7 +131,7 @@ z-index: 0;
 `
 
 let ASubmitBtn = styled(Button)`
-margin-top: 15px;
+margin-top: 35px;
 `
 
 let Backy = styled.div`
