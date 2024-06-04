@@ -7,7 +7,7 @@ const Experience = () => {
     return (
         <>
 
-            <ScrollControls pages={3} damping={0.25}>
+            <ScrollControls pages={4} damping={0.25}>
                 <Overlay />
                 <ambientLight />
                 <ModelOffice />

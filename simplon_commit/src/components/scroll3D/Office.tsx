@@ -54,9 +54,9 @@ export function ModelOffice(props: ModelProps) {
     if (wholeRef.current) {
       tl.current.to(
         wholeRef.current.position, {
-        duration: 2,
+        duration: 4,
         y: -ETAGE_TAILLE * (ETAGE_NOMBRE - 1)
-      }, 0
+      }, 1
       )
     }
     if (object3.current) {
