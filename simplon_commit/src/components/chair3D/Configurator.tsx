@@ -67,6 +67,10 @@ const ConfiguratorContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  /* background-color: white; */
+  display: flex;
+  flex-direction: column;
 `;
 
 const Section = styled.div`
@@ -80,6 +84,8 @@ const SectionTitle = styled.div`
   font-weight: bold;
   font-family: "Poppins", sans-serif;
   color: white;
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const SectionValues = styled.div`

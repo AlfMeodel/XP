@@ -36,7 +36,7 @@ const Inscription = () => {
                 <AForm onFinish={onFinish}>
 
                     <FormMainTitle>
-                        Connexion
+                        Inscription
                     </FormMainTitle>
 
                     <FormSection>
@@ -73,8 +73,8 @@ const Inscription = () => {
                         Inscription
                     </ASubmitBtn>
 
-                    <FormLink to="/inscription" key="inscriptionBtn">
-                        Pas encore de compte ? inscrivez vous
+                    <FormLink to="/connexion" key="connexionBtn">
+                        Vous avez un compte ? connectez vous
                     </FormLink>
 
                 </AForm>
