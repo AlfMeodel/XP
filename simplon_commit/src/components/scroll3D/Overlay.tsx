@@ -250,6 +250,9 @@ let Textarea = styled.textarea`
 padding: 5% 10%;
 border-radius: 7px;
 margin-top: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
 
 @media (max-width:750px){
     padding: 5% 0;
@@ -260,17 +263,24 @@ margin-top: 8px;
 let BtnContainer = styled.div`
 display: flex;
 
+margin-top: 20px;
+
 `
 
-let SuperMenu = styled.div``
+let SuperMenu = styled.div`
+display: flex;
+flex-direction: column;
+`
 
-let MiniMenu = styled.div``
+let MiniMenu = styled.div`
+display: flex;
+flex-direction: column;
+`
 
 let Menu = styled.div`
-/* padding-bottom: 20px;
-border-radius: 10px;
-border: 1px solid black;
-margin-top: 10px; */
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 let DisplayMenu = styled.div`
@@ -283,6 +293,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-bottom: 20px;
+background-color: #000000bb;
+color: white;
 `
 
 
@@ -294,6 +306,9 @@ width: 100%;
 padding: 5px 10px;
 color: white;
 border-radius: 10px;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 let Texte = styled.div`
