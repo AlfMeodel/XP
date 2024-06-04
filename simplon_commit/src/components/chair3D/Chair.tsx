@@ -29,7 +29,7 @@ interface GLTFType {
 
 
 const ChairModel = (props: ModelProps) => {
-  const { nodes, materials } = useGLTF('./models/chair.gltf') as GLTFType
+  const { nodes, materials } = useGLTF('/models/chair.gltf') as GLTFType
   //On ajoute Legs à notre useCustomization
   const { material, legs } = useCustomization()
 
@@ -116,6 +116,6 @@ const ChairModel = (props: ModelProps) => {
   )
 }
 
-useGLTF.preload('./models/chair.gltf')
+useGLTF.preload('/models/chair.gltf')
 
 export default ChairModel
