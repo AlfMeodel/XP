@@ -16,13 +16,13 @@ const Configurator: React.FC = () => {
   return (
     <ConfiguratorContainer>
       <Section>
-        <SectionTitle>Chair material</SectionTitle>
+        <SectionTitle>Chaise</SectionTitle>
         <SectionValues>
           <SItem $active={material === "leather"} onClick={() => setMaterial('leather')}>
-            <div>leather</div>
+            <div>Cuir</div>
           </SItem>
           <SItem $active={material === "fabric"} onClick={() => setMaterial('fabric')}>
-            <div>fabric</div>
+            <div>Tissu</div>
           </SItem>
         </SectionValues>
       </Section>
@@ -37,7 +37,7 @@ const Configurator: React.FC = () => {
         </SectionValues>
       </Section> */}
       <Section>
-        <SectionTitle>Legs</SectionTitle>
+        <SectionTitle>Pieds</SectionTitle>
         <SectionValues>
 
           <SItem $active={legs === 1} onClick={() => setLegs(1)}>
@@ -101,9 +101,13 @@ const SItem = styled.div < { $active: boolean }>`
 color:white;
   cursor: pointer;
   opacity: ${({ $active }) => ($active ? 1 : 0.9)};
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
 
   &:hover {
     opacity: 0.8;
+    border: 1px solid white;
   }
 `;
 

@@ -24,7 +24,7 @@ const TroisD = () => {
 export default TroisD
 
 let Backy = styled.div`
-background: linear-gradient(-45deg, white 0%, blue 100%);
+/* background: linear-gradient(-45deg, white 0%, blue 100%); */
 width: 100vw;
 height: 100vh;
 /* display: flex;
