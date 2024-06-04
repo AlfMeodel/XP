@@ -43,6 +43,10 @@ justify-content: center;
 align-items: center;
 background-color: #000000db;
 z-index: 1;
+
+@media (min-width:750px){
+    display: none;
+}
 `
 
 let SDrawer = styled.div<{ $ouverture: boolean }>`
@@ -56,6 +60,10 @@ align-items: center;
 transform: translateX(${(props: { $ouverture: boolean }) => (props.$ouverture ? "0" : "-100%")});
 transition: 0.3s ease-in-out;
 z-index: 2;
+
+@media (min-width:750px){
+    display: none;
+}
 `
 
 
@@ -72,6 +80,7 @@ let Navroute = styled(Link)`
 display: flex;
 justify-content: center;
 align-items: center;
+width: 100%;
 
 text-decoration: none;
 font-size: 1.2em;
@@ -82,7 +91,7 @@ border: 1px solid white;
 border-radius: 9px;
 transition: 0.3s ease-in-out;
 margin-top: 10px;
-background-color: #1e1e1ec0;
+background-color: #291a49c0;
 &:hover{
     background-color: #731171c0;
 }

@@ -31,7 +31,7 @@ export const listePokemon: DonneesPokemon[] = [
         pvMax: 360,
         attaques: [
             { nom: 'Deflagration', type: 'feu', puissance: 95, precision: 0.95 },
-            { nom: 'Griffe du dragon', type: 'dragon', puissance: 100, precision: 0.95 },
+            { nom: 'Griffe', type: 'dragon', puissance: 100, precision: 0.95 },
             { nom: 'Lameair', type: 'vol', puissance: 75, precision: 0.25 },
             { nom: 'Tranche', type: 'normal', puissance: 70, precision: 1 }
         ]

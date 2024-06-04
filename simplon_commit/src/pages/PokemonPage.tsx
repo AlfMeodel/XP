@@ -24,7 +24,7 @@ align-items: center;
 `
 
 let Title = styled.div`
-background-color: #000000bb;
+background-color: #00000084;
 padding: 5% 10%;
 border-radius: 10px;
 box-shadow: 9px 8px 8px black;

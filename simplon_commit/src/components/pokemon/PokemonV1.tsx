@@ -213,16 +213,26 @@ const PokemonV1: React.FC = () => {
     };
     return (
         <Scene>
-            <p>Victoires : {compteurVictoires}</p>
+            <ConteneurVictoires>Victoires : {compteurVictoires}</ConteneurVictoires>
             <ConteneurImage>
                 {/* {creature1 && <Scene3D pokemon={creature1} />}
                 {creature2 && <Scene3D pokemon={creature2} />} */}
-                {creature1 && <img src={creature1.sprite} alt={creature1.nom} />}
+
+                <InverseImage>
+                    {creature1 && <img src={creature1.sprite} alt={creature1.nom} />}
+
+                </InverseImage>
                 {creature2 && <img src={creature2.sprite} alt={creature2.nom} />}
             </ConteneurImage>
             <ConteneurPV>
-                {creature1 && <BarrePV pvActuels={creature1.pv} pvMax={creature1.pvMax} />}
-                {creature2 && <BarrePV pvActuels={creature2.pv} pvMax={creature2.pvMax} />}
+                <ContainerBarre>
+                    {creature1 && <BarrePV pvActuels={creature1.pv} pvMax={creature1.pvMax} />}
+
+                </ContainerBarre>
+                <ContainerBarre>
+                    {creature2 && <BarrePV pvActuels={creature2.pv} pvMax={creature2.pvMax} />}
+
+                </ContainerBarre>
             </ConteneurPV>
 
             <ConteneurCommentaires>
@@ -251,30 +261,64 @@ const PokemonV1: React.FC = () => {
 
 export default PokemonV1
 
-const Scene = styled.div`
-display: flex;
-flex-direction: column;
-background-color: white;
-padding: 5% 10%;
-border-radius: 10px;`
-
-const ConteneurImage = styled.div`
-background-color: white;
-display: flex;
-justify-content: center;
-align-items: center;`
-
-const ConteneurPV = styled.div`
-background-color: white;
+let ContainerBarre = styled.div`
+width: 48%;
 display: flex;
 justify-content: center;
 align-items: center;
 `
 
+const Scene = styled.div`
+display: flex;
+flex-direction: column;
+background-color: white;
+padding: 5% 10%;
+border-radius: 10px;
+box-shadow: 3px 3px 10px #000000e7;
+`
+
+let ConteneurVictoires = styled.div`
+background-color: #000000b3;
+border-radius: 5px;
+color: white;
+padding: 5px 0;
+box-shadow: 3px 3px 6px #000000e7;
+width: 100%;
+margin-bottom: 20px;
+
+`
+
+const ConteneurImage = styled.div`
+background-color: white;
+display: flex;
+justify-content: space-around;
+align-items: center;`
+
+const ConteneurPV = styled.div`
+/* background-color: white; */
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+`
+
 const Bouton = styled.button`padding: 5px 10px;
+margin: 2px;
 border-radius: 8px;
-background-color: #075162;
-color: white;`;
+background-color: #075250db;
+width: 45%;
+font-size: 1.05em;
+height: 40px;
+color: white;
+transition: 0.3s ease-in-out;
+border: 1px solid white;
+box-shadow: 2px 2px 1px black;
+
+&:hover{
+    background-color: #3d3246b8;
+}
+
+`;
 
 const ConteneurCommentaires = styled.div`background-color: white;
 padding: 2%;
@@ -287,5 +331,7 @@ let ContainerImg = styled.div``
 
 let ElementImg = styled.div``
 
-
+const InverseImage = styled.div`
+    transform: scaleX(-1);
+`;
 

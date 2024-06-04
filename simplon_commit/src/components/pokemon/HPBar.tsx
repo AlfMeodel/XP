@@ -38,6 +38,7 @@ const ConteneurBarrePV = styled.div`
 `;
 
 const BarrePVActuels = styled.div`
+
     height: 100%;
     transition: width 1s ease-in-out;
     position: absolute;  // Positionner absolument pour superposer sous le texte
