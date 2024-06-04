@@ -271,10 +271,10 @@ align-items: center;
 const Scene = styled.div`
 display: flex;
 flex-direction: column;
-background-color: white;
+background-color: #000000ad;
 padding: 5% 10%;
 border-radius: 10px;
-box-shadow: 3px 3px 10px #000000e7;
+box-shadow: 3px 3px 10px #000000ab;
 `
 
 let ConteneurVictoires = styled.div`
@@ -292,7 +292,10 @@ const ConteneurImage = styled.div`
 background-color: white;
 display: flex;
 justify-content: space-around;
-align-items: center;`
+align-items: center;
+border-radius: 9px;
+margin: 5% 0;
+`
 
 const ConteneurPV = styled.div`
 /* background-color: white; */
@@ -300,6 +303,9 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+
+border-radius: 9px;
+margin: 5% 0;
 `
 
 const Bouton = styled.button`padding: 5px 10px;
@@ -325,7 +331,10 @@ padding: 2%;
 border-radius: 9px;`;
 const ConteneurBoutons = styled.div`background-color: white;
 padding: 2%;
-border-radius: 9px;`;
+border-radius: 9px;
+margin: 5% 0;
+
+`;
 
 let ContainerImg = styled.div``
 
