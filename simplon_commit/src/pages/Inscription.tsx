@@ -172,10 +172,15 @@ let FormLink = styled(Link) <{ ouvertureInfo: boolean }>`
 text-decoration: none;
 color: white;
 margin-top: 15px;
-padding: 0 5px;
+padding: 5px 10px;
 border-radius: 8px;
+
+background-color: ${(props: { ouvertureInfo: boolean }) =>
+        props.ouvertureInfo ? "green" : "#0f8496"
+    };
+
 border: ${(props: { ouvertureInfo: boolean }) =>
-        props.ouvertureInfo ? "3px dashed red" : "3px solid transparent"
+        props.ouvertureInfo ? "2px dashed white" : "px solid transparent"
     }
 `;
 

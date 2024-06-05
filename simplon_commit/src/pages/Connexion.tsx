@@ -89,7 +89,7 @@ const Connexion = () => {
                         Connexion
                     </ASubmitBtn>
                     <FormLink to="/inscription" key="inscriptionBtn">
-                        Pas encore de compte ? inscrivez vous
+                        Pas encore de compte ? <strong> Inscrivez vous </strong>
                     </FormLink>
 
 
@@ -167,7 +167,10 @@ align-items: center;
 let FormLink = styled(Link)`
 text-decoration: none;
 color: white;
+background-color: #0f8496;
 margin-top: 15px;
+padding: 5px 10px;
+border-radius: 8px;
 `
 
 let FormSection = styled.div``

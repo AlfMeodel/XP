@@ -90,6 +90,32 @@ const Calendar = () => {
 
                     <FormSection>
                         <FormTitle>
+                            Jours :
+                        </FormTitle>
+
+                        <SLabel>
+                            <SSelect value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
+                                <SOption value="">
+                                    Jours
+                                </SOption>
+
+                                {
+                                    days.map((day) => {
+                                        return (
+                                            <SOption value={day} key={day}>
+                                                {day}
+                                            </SOption>
+                                        )
+                                    })
+                                }
+
+                            </SSelect>
+                        </SLabel>
+
+                    </FormSection>
+
+                    <FormSection>
+                        <FormTitle>
                             Mois :
                         </FormTitle>
 
@@ -114,31 +140,7 @@ const Calendar = () => {
 
                     </FormSection>
 
-                    <FormSection>
-                        <FormTitle>
-                            Jours :
-                        </FormTitle>
 
-                        <SLabel>
-                            <SSelect value={selectedDay} onChange={(e) => setSelectedDay(e.target.value)}>
-                                <SOption value="">
-                                    Jours
-                                </SOption>
-
-                                {
-                                    days.map((day) => {
-                                        return (
-                                            <SOption value={day} key={day}>
-                                                {day}
-                                            </SOption>
-                                        )
-                                    })
-                                }
-
-                            </SSelect>
-                        </SLabel>
-
-                    </FormSection>
 
                     <SubmitBtn type='submit'>
                         Lancer
@@ -172,10 +174,11 @@ border-radius: 10px;
 font-size: 1.2em;
 color: white;
 background-color: #000000b5;
-margin-top: 10px;
+margin-top: 15px;
 border: 1px solid white;
 box-shadow: 3px 3px 9px black;
 transition: 0.3s ease-in-out;
+
 
 &:hover{
     transform: scale(1.01);
@@ -212,8 +215,8 @@ align-items: center;
 `
 
 let Formulaire = styled.div`
-background-color: #000000bb;
-padding: 5% 10%;
+background-color: #00000085;
+padding: 5% 6%;
 border-radius: 10px;
 color: white;
 box-shadow: 9px 8px 8px black;
@@ -225,6 +228,10 @@ box-shadow: 9px 8px 8px black;
 `
 
 let FormulaireDescription = styled.div`
+margin-top: 20px;
+background-color: #0f8496;
+border-radius: 10px;
+padding: 8px 10px;
 
 @media (max-width:750px){
    font-size: 0.8em;
@@ -237,4 +244,5 @@ background-color: #00000063;
 padding: 2% 3%;
 border-radius: 15px;
 margin-bottom: 10px;
+box-shadow:inset 4px 4px 4px black;
 `
