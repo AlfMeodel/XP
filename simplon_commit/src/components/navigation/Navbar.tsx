@@ -93,7 +93,7 @@ transition: 0.3S ease-in-out;
 `
 
 let Nav = styled.div`
-background-color: #000000bb;
+background-color: #000000b3;
 width: 100%;
 display: flex;
 justify-content: space-between;
@@ -161,10 +161,12 @@ font-size: 1.2em;
 color: white;
 margin-right: 20px;
 padding: 5px 10px;
-border: 1px solid white;
+border: 1px solid transparent;
 border-radius: 9px;
 transition: 0.3s ease-in-out;
 &:hover{
-    background-color: purple;
+    /* background-color: #8000809e; */
+    border: 1px solid white;
+
 }
 `

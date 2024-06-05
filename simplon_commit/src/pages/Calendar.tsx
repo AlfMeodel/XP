@@ -193,6 +193,8 @@ border: 1px solid white;
 border-radius: 10px;
 box-shadow: 3px 3px 9px black;
 margin-top: 10px;
+
+
 `
 
 
@@ -215,9 +217,19 @@ padding: 5% 10%;
 border-radius: 10px;
 color: white;
 box-shadow: 9px 8px 8px black;
+
+@media (max-width:750px){
+    padding: 5% 3%;
+    width: 80%;
+}
 `
 
-let FormulaireDescription = styled.div``
+let FormulaireDescription = styled.div`
+
+@media (max-width:750px){
+   font-size: 0.8em;
+}
+`
 
 let FormulaireTitle = styled.div`
 font-size: 2em;

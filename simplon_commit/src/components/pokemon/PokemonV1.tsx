@@ -271,7 +271,7 @@ align-items: center;
 const Scene = styled.div`
 display: flex;
 flex-direction: column;
-background-color: #000000ad;
+background-color: #0000006d;
 padding: 5% 10%;
 border-radius: 10px;
 box-shadow: 3px 3px 10px #000000ab;
@@ -311,7 +311,8 @@ margin: 5% 0;
 const Bouton = styled.button`padding: 5px 10px;
 margin: 2px;
 border-radius: 8px;
-background-color: #075250db;
+background-color: #0000008b;
+
 width: 45%;
 font-size: 1.05em;
 height: 40px;
@@ -329,7 +330,9 @@ box-shadow: 2px 2px 1px black;
 const ConteneurCommentaires = styled.div`background-color: white;
 padding: 2%;
 border-radius: 9px;`;
-const ConteneurBoutons = styled.div`background-color: white;
+
+const ConteneurBoutons = styled.div`
+/* background-color: white; */
 padding: 2%;
 border-radius: 9px;
 margin: 5% 0;

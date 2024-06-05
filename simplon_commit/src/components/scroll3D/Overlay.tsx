@@ -285,7 +285,7 @@ align-items: center;
 
 let DisplayMenu = styled.div`
 padding-bottom: 20px;
-border-radius: 10px;
+/* border-radius: 10px; */
 border: 1px solid black;
 margin-top: 10px;
 padding: 5px 10px;
@@ -293,7 +293,8 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-bottom: 20px;
-background-color: #000000bb;
+/* background-color: #000000bb; */
+background-color: #085062ba;
 color: white;
 `
 

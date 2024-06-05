@@ -92,7 +92,7 @@ let FormMainTitle = styled.div`
 background-color: #00000055;
 box-shadow:inset 4px 4px 4px black;
 color: white;
-padding: 5% 10%;
+padding: 3%;
 border-radius: 8px;
 font-size: 2em;
 margin-bottom: 20px;
@@ -127,11 +127,16 @@ let AFormItem = styled(Form.Item)``
 
 let AInput = styled(Input)`
 z-index: 0;
+box-shadow:inset 2px 2px 4px black;
 
 `
 
 let ASubmitBtn = styled(Button)`
 margin-top: 35px;
+
+@media (max-width:750px){
+    margin-top: 25px;
+}
 `
 
 let Backy = styled.div`
@@ -144,10 +149,15 @@ align-items: center;
 `
 
 let Formulaire = styled.div`
-background-color: #000000bb;
-padding: 5% 10%;
-border-radius: 10px;
+background-color: #0000006e;
+padding: 2% 5%;
+border-radius: 15px;
 font-size: 5.5em;
 color: white;
-box-shadow: 9px 8px 8px black;
+box-shadow: 6px 6px 9px #000000d4, inset -3px -3px 4px #1e1e1e87;
+border: 2px solid #ffffff63;
+
+@media (max-width:750px){
+    padding: 5% 10%;
+}
 `

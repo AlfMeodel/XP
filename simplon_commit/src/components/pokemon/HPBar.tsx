@@ -12,7 +12,7 @@ const BarrePV: React.FC<PropsBarrePV> = ({ pvActuels, pvMax }) => {
     if (pourcentagePV <= 20) {
         couleurPV = 'rgba(255, 0, 0, 0.6)'; // Rouge semi-transparent
     } else {
-        couleurPV = 'rgba(0, 128, 0, 0.6)'; // Vert semi-transparent
+        couleurPV = 'rgba(31, 253, 31, 0.693)'; // Vert semi-transparent
     }
 
 
@@ -33,8 +33,9 @@ const ConteneurBarrePV = styled.div`
     width: 100%;
     height: 20px;
     border: 1px solid black;
-    background-color: #c4c5c5;
+    background-color: #000000ce;
     position: relative;  // Ajoutez cette ligne pour positionner absolument les enfants
+    border-radius: 5px;
 `;
 
 const BarrePVActuels = styled.div`
@@ -44,6 +45,8 @@ const BarrePVActuels = styled.div`
     position: absolute;  // Positionner absolument pour superposer sous le texte
     top: 0;
     left: 0;
+    border-radius: 5px;
+
 `;
 
 const TextePV = styled.div`
