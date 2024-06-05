@@ -8,6 +8,7 @@ import { Routes } from './Navlinks';
 import ProtectedRoutes from '../protected/ProtectedRoutes'
 import { useDispatch } from 'react-redux'
 import { Logout } from '../redux/protectedSlice'
+import { message } from 'antd'
 
 
 interface Navprops {
@@ -22,6 +23,7 @@ const Navbar: React.FC<Navprops> = ({ routes, interrupteur }) => {
     let handleLogout = () => {
         localStorage.removeItem('user')
         dispatch(Logout())
+        message.success("Vous êtes deconnecté")
     }
     return (
         <Nav>
@@ -47,7 +49,7 @@ const Navbar: React.FC<Navprops> = ({ routes, interrupteur }) => {
                     }
                 </Navroutes>
 
-                <NavUser to="/connexion" key="connexionUser">
+                <NavUser to="/inscription" key="isncriptionUser">
                     <FaUser />
                 </NavUser>
                 <ProtectedRoutes>

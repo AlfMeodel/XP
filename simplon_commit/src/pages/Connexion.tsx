@@ -1,16 +1,21 @@
 import { Button, Form, Input, message } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { LoginUsers, UserResponse, Values } from '../components/firebase/Users'
 import { useDispatch } from 'react-redux'
 import { AfficherSpiner } from '../components/redux/chargementSlice'
 import { Login } from '../components/redux/protectedSlice'
+import { FaCircleInfo } from 'react-icons/fa6'
 
 const Connexion = () => {
 
     let navigate = useNavigate()
     let dispatch = useDispatch()
+    let [ouvertureInfo, setOuvertureInfo] = useState(false)
+    let interrupteurBulleInfo = () => {
+        setOuvertureInfo(!ouvertureInfo)
+    }
 
     let onFinish = async (values: unknown) => {
         try {
@@ -43,8 +48,22 @@ const Connexion = () => {
             <Formulaire>
                 <AForm onFinish={onFinish}>
                     <FormMainTitle>
-                        Connexion
+                        <h2>Connexion</h2>
+                        <OverInfo onClick={interrupteurBulleInfo}>
+                            <FaCircleInfo />
+                        </OverInfo>
                     </FormMainTitle>
+                    <OverBulleInfo ouvertureInfo={ouvertureInfo}>
+                        <OverBulleInfoTitle>
+                            <strong> Connexion sans inscription : </strong>
+                        </OverBulleInfoTitle>
+                        <OverBulleInfoSection>
+                            <strong>nom</strong> : gg
+                        </OverBulleInfoSection>
+                        <OverBulleInfoSection>
+                            <strong> password </strong>: gg
+                        </OverBulleInfoSection>
+                    </OverBulleInfo>
 
                     <FormSection>
                         <FormTitle>
@@ -82,6 +101,54 @@ const Connexion = () => {
 
 export default Connexion
 
+
+let OverBulleInfoTitle = styled.div`
+color: white;
+`
+
+let OverBulleInfo = styled.div<{ ouvertureInfo: boolean }>`
+transition: 0.3s ease-in-out;
+
+display: ${(props: { ouvertureInfo: boolean }) => props.ouvertureInfo ? "flex" : "none"};
+/* background-color: white; */
+padding: 5% 10%;
+border-radius: 5px;
+justify-content: flex-start;
+align-items: center;
+flex-direction: column;
+
+border: 1px dashed white;
+
+`
+
+let OverBulleInfoSection = styled.div`
+width: 100%;
+background-color: #bababa;
+box-shadow: 4px 4px 4px #0000005d;
+padding: 4px 10px;
+margin-top: 5px;
+border-radius: 8px;
+display: flex;
+justify-content: flex-start;
+align-items: center; 
+`
+
+let OverInfo = styled.div`
+font-size: 2.1em;
+color: white;
+
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.3s ease-in-out;
+margin-left: 20px;
+
+&:hover{
+    transform: scale(1.05);
+}
+`
+
+
 //ANTD MEF
 
 let FormMainTitle = styled.div`
@@ -90,8 +157,11 @@ box-shadow:inset 4px 4px 4px black;
 color: white;
 padding: 3%;
 border-radius: 8px;
-font-size: 2em;
+/* font-size: 2em; */
 margin-bottom: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 let FormLink = styled(Link)`

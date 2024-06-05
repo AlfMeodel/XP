@@ -1,15 +1,21 @@
 import { Button, Form, Input, message } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { CreateUsers, UserResponse, Values } from '../components/firebase/Users'
 import { useDispatch } from 'react-redux'
 import { AfficherSpiner } from '../components/redux/chargementSlice'
+import { FaCircleInfo } from 'react-icons/fa6'
 
 const Inscription = () => {
 
     let navigate = useNavigate()
     let dispatch = useDispatch()
+    //BULLE INFO
+    let [ouvertureInfo, setOuvertureInfo] = useState(false)
+    let interrupteurBulleInfo = () => {
+        setOuvertureInfo(!ouvertureInfo)
+    }
 
     let onFinish = async (values: unknown) => {
         try {
@@ -32,12 +38,27 @@ const Inscription = () => {
 
     return (
         <Backy>
+
             <Formulaire>
                 <AForm onFinish={onFinish}>
 
                     <FormMainTitle>
-                        Inscription
+                        <h2>Inscription</h2>
+                        <OverInfo onClick={interrupteurBulleInfo}>
+                            <FaCircleInfo />
+                        </OverInfo>
                     </FormMainTitle>
+                    <OverBulleInfo ouvertureInfo={ouvertureInfo}>
+                        <OverBulleInfoTitle>
+                            <strong> Connexion sans inscription : </strong>
+                        </OverBulleInfoTitle>
+                        <OverBulleInfoSection>
+                            <strong>nom</strong> : gg
+                        </OverBulleInfoSection>
+                        <OverBulleInfoSection>
+                            <strong> password </strong>: gg
+                        </OverBulleInfoSection>
+                    </OverBulleInfo>
 
                     <FormSection>
                         <FormTitle>
@@ -73,8 +94,8 @@ const Inscription = () => {
                         Inscription
                     </ASubmitBtn>
 
-                    <FormLink to="/connexion" key="connexionBtn">
-                        Vous avez un compte ? connectez vous
+                    <FormLink to="/connexion" key="connexionBtn" ouvertureInfo={ouvertureInfo}>
+                        Vous avez un compte ? <strong> Connectez vous </strong>
                     </FormLink>
 
                 </AForm>
@@ -87,6 +108,52 @@ export default Inscription
 
 //ANTD MEF
 
+let OverBulleInfoTitle = styled.div`
+color: white;
+`
+
+let OverBulleInfo = styled.div<{ ouvertureInfo: boolean }>`
+transition: 0.3s ease-in-out;
+
+display: ${(props: { ouvertureInfo: boolean }) => props.ouvertureInfo ? "flex" : "none"};
+/* background-color: white; */
+padding: 5% 10%;
+border-radius: 5px;
+justify-content: flex-start;
+align-items: center;
+flex-direction: column;
+
+border: 1px dashed white;
+
+`
+
+let OverBulleInfoSection = styled.div`
+width: 100%;
+background-color: #bababa;
+box-shadow: 4px 4px 4px #0000005d;
+padding: 4px 10px;
+margin-top: 5px;
+border-radius: 8px;
+display: flex;
+justify-content: flex-start;
+align-items: center; 
+`
+
+let OverInfo = styled.div`
+font-size: 2.1em;
+color: white;
+
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.3s ease-in-out;
+margin-left: 20px;
+
+&:hover{
+    transform: scale(1.05);
+}
+`
+
 
 let FormMainTitle = styled.div`
 background-color: #00000055;
@@ -94,15 +161,23 @@ box-shadow:inset 4px 4px 4px black;
 color: white;
 padding: 3%;
 border-radius: 8px;
-font-size: 2em;
+/* font-size: 2em; */
 margin-bottom: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
-let FormLink = styled(Link)`
+let FormLink = styled(Link) <{ ouvertureInfo: boolean }>`
 text-decoration: none;
 color: white;
 margin-top: 15px;
-`
+padding: 0 5px;
+border-radius: 8px;
+border: ${(props: { ouvertureInfo: boolean }) =>
+        props.ouvertureInfo ? "3px dashed red" : "3px solid transparent"
+    }
+`;
 
 let FormSection = styled.div`
 
