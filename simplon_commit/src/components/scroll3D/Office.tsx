@@ -10,8 +10,11 @@ import * as THREE from 'three'
 import gsap from 'gsap'
 import { useFrame } from '@react-three/fiber'
 
-interface ModelProps {
 
+
+interface ModelProps {
+  scale?: [number, number, number]
+  position?: [number, number, number]
 }
 
 interface GLTFTypes {

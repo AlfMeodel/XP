@@ -28,56 +28,80 @@ export const listePokemon: DonneesPokemon[] = [
         modele: './models/perso0.glb',
         sprite: 'https://img.pokemondb.net/sprites/black-white/normal/charizard.png',
         pv: 360,
-        pvMax: 360,
+        pvMax: 362,
         attaques: [
-            { nom: 'Deflagration', type: 'feu', puissance: 95, precision: 0.95 },
-            { nom: 'Griffe', type: 'dragon', puissance: 100, precision: 0.95 },
-            { nom: 'Lameair', type: 'vol', puissance: 75, precision: 0.25 },
-            { nom: 'Tranche', type: 'normal', puissance: 70, precision: 1 }
+            { nom: 'Deflagration', type: 'feu', puissance: 130, precision: 0.75 },
+            { nom: 'Griffe', type: 'normal', puissance: 60, precision: 1 },
+            { nom: 'Lance-Flamme', type: 'feu', puissance: 85, precision: 0.95 },
+            { nom: 'Tranche', type: 'normal', puissance: 100, precision: 0.85 }
         ]
     },
     {
         nom: 'Tortank',
         modele: './models/perso1.glb',
         sprite: 'https://img.pokemondb.net/sprites/black-white/normal/blastoise.png',
-        pv: 362,
-        pvMax: 362,
+        pv: 424,
+        pvMax: 424,
         attaques: [
-            { nom: 'Surf', type: 'eau', puissance: 90, precision: 0.95 },
-            { nom: 'Machouille', type: 'normal', puissance: 80, precision: 0.95 },
-            { nom: 'Poing-glace', type: 'glace', puissance: 75, precision: 0.25 },
-            { nom: 'Luminocanon', type: 'acier', puissance: 80, precision: 0.95 }
+            { nom: 'HydroCanon', type: 'eau', puissance: 120, precision: 0.75 },
+            { nom: 'Griffe', type: 'normal', puissance: 50, precision: 1 },
+            { nom: 'Surf', type: 'eau', puissance: 75, precision: 0.95 },
+            { nom: 'Tranche', type: 'normal', puissance: 90, precision: 0.85 }
         ]
     },
     {
         nom: 'Florizard',
         modele: './models/perso2.glb',
+        // sprite: 'https://www.pokebip.com/pokedex-images/300/3.png?v=ev-blueberry',
         sprite: 'https://img.pokemondb.net/sprites/black-white/normal/venusaur-f.png',
-        pv: 364,
-        pvMax: 364,
+        pv: 484,
+        pvMax: 484,
         attaques: [
-            { nom: 'Tranchherbe', type: 'plante', puissance: 90, precision: 0.95 },
-            { nom: 'Bomb-beurk', type: 'poison', puissance: 90, precision: 0.95 },
-            { nom: 'Seisme', type: 'sol', puissance: 100, precision: 0.25 },
-            { nom: 'Plaquage', type: 'normal', puissance: 85, precision: 0.95 }
+            { nom: 'Tranchherbe', type: 'plante', puissance: 120, precision: 0.75 },
+            { nom: 'Griffe', type: 'normal', puissance: 50, precision: 1 },
+            { nom: 'Fouet-Liane', type: 'plante', puissance: 75, precision: 0.95 },
+            { nom: 'Plaquage', type: 'normal', puissance: 90, precision: 0.85 }
         ]
-    }
+    },
+    {
+        nom: 'Mew',
+        modele: './models/perso2.glb',
+        sprite: 'https://img.pokemondb.net/sprites/black-white/normal/mew.png',
+        pv: 404,
+        pvMax: 404,
+        attaques: [
+            { nom: 'Psyko', type: 'psy', puissance: 120, precision: 0.85 },
+            { nom: 'Deflagration', type: 'feu', puissance: 100, precision: 0.85 },
+            { nom: 'HydroCanon', type: 'eau', puissance: 100, precision: 0.85 },
+            { nom: 'Tranchherbe', type: 'plante', puissance: 100, precision: 0.85 }
+        ]
+    },
 ];
+
+
+
+
 
 export const correspondanceType: CorrespondanceType = {
     'Dracaufeu': {
-        sansEffet: ['sol'],
-        superEfficace: ['eau', 'roche'],
-        peuEfficace: ['feu', 'plante', 'acier']
+        sansEffet: ['null'],
+        superEfficace: ['eau'],
+        peuEfficace: ['feu', 'plante']
     },
     'Tortank': {
+        sansEffet: ['null'],
         superEfficace: ['plante'],
         peuEfficace: ['feu', 'eau']
     },
     'Florizard': {
-        sansEffet: ['poison'],
-        superEfficace: ['feu', 'vol', 'glace', 'acier'],
+        sansEffet: ['null'],
+        superEfficace: ['feu'],
         peuEfficace: ['plante', 'eau']
+    },
+    'Mew': {
+        sansEffet: ['psy'],
+        superEfficace: ['normal'],
+        peuEfficace: ['feu', 'eau', 'plante']
     }
 };
 

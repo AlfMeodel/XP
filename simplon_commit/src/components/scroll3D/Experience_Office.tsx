@@ -10,7 +10,7 @@ const Experience = () => {
             <ScrollControls pages={4} damping={0.25}>
                 <Overlay />
                 <ambientLight />
-                <ModelOffice />
+                <ModelOffice scale={[1.2, 1.2, 1.2]} position={[0, -1, 0]} />
             </ScrollControls>
 
         </>
