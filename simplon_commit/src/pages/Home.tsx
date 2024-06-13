@@ -81,88 +81,157 @@ const Home: React.FC = () => {
     );
 
     return (
-        <Backy>
-
-            {loading ? (
-                <LoadingText>Chargement...</LoadingText>
-            ) : (
-                <Carousel>
-                    <Title>Anniversaires du Jour</Title>
-                    {currentIndex < birthdaysWithPhotos.length ? (
-                        <CarouselItem>
-                            <CarouselSection>
-                                <ItemTitle>{stripHtmlTags(birthdaysWithPhotos[currentIndex].pages[0].displaytitle)}</ItemTitle>
-
-                            </CarouselSection>
-                            <CarouselSection>
-                                <CarouselContainer>
-                                    <ItemImage src={birthdaysWithPhotos[currentIndex].pages[0].thumbnail!.source} alt={stripHtmlTags(birthdaysWithPhotos[currentIndex].pages[0].displaytitle)} />
-
-                                </CarouselContainer>
-                                <CarouselContainer>
-                                    {birthdaysWithPhotos[currentIndex].pages[0].extract ? (
-                                        <ItemDescription>{birthdaysWithPhotos[currentIndex].pages[0].extract}</ItemDescription>
-                                    ) : (
-                                        <LoadingText>Chargement de la description...</LoadingText>
-                                    )}
-
-                                </CarouselContainer>
-
-                            </CarouselSection>
-                            <ItemLink href={birthdaysWithPhotos[currentIndex].pages[0].content_urls.desktop.page} target="_blank" rel="noopener noreferrer">Lire plus sur Wikipedia</ItemLink>
+        <SimpleMain>
+            <MarginContainer>
+                <MainTitle>Anniversaires du Jour</MainTitle>
+            </MarginContainer>
+            <WholeMain>
 
 
-                        </CarouselItem>
-                    ) : (
-                        <ThankYouText>Merci d'avoir voté pour toutes les images !</ThankYouText>
-                    )}
-                    <ArrowLeft onClick={handlePrev}><FaArrowAltCircleLeft /> </ArrowLeft>
-                    <ArrowRight onClick={handleNext}> <FaArrowAltCircleRight /> </ArrowRight>
-                </Carousel>
-            )}
-        </Backy>
+                <BackyOverlay />
+                {loading ? (
+                    <LoadingText>Chargement...</LoadingText>
+                ) : (
+                    <MainCarousel>
+
+                        {currentIndex < birthdaysWithPhotos.length ? (
+                            <ContainerCarousel>
+                                <CarouselSection>
+                                    <ItemTitle>{stripHtmlTags(birthdaysWithPhotos[currentIndex].pages[0].displaytitle)}</ItemTitle>
+
+                                </CarouselSection>
+                                <CarouselSection>
+                                    <CarouselContainer>
+                                        <ImageCarousel src={birthdaysWithPhotos[currentIndex].pages[0].thumbnail!.source} alt={stripHtmlTags(birthdaysWithPhotos[currentIndex].pages[0].displaytitle)} />
+
+                                    </CarouselContainer>
+                                    <CarouselContainer>
+                                        {birthdaysWithPhotos[currentIndex].pages[0].extract ? (
+                                            <DescriptionCarousel>{birthdaysWithPhotos[currentIndex].pages[0].extract}</DescriptionCarousel>
+                                        ) : (
+                                            <LoadingText>Chargement de la description...</LoadingText>
+                                        )}
+
+                                    </CarouselContainer>
+
+                                </CarouselSection>
+                                <ItemLink href={birthdaysWithPhotos[currentIndex].pages[0].content_urls.desktop.page} target="_blank" rel="noopener noreferrer">Lire plus sur Wikipedia</ItemLink>
+
+
+                            </ContainerCarousel>
+                        ) : (
+                            <ThankYouText>Merci d'avoir voté pour toutes les images !</ThankYouText>
+                        )}
+                        <ArrowLeft onClick={handlePrev}><FaArrowAltCircleLeft /> </ArrowLeft>
+                        <ArrowRight onClick={handleNext}> <FaArrowAltCircleRight /> </ArrowRight>
+                    </MainCarousel>
+                )}
+            </WholeMain>
+
+        </SimpleMain>
     );
 };
 
 export default Home;
 
 
-let Backy = styled.div`
-background: linear-gradient(-45deg, white 0%, blue 100%);
+
+let MarginContainer = styled.div`
+height: 140px;
+background-color: #4b8c1a6b;
+color: white;
+border-radius: 0 0 20px 20px ;
+box-shadow: 6px 6px 6px #00000062;
 width: 100%;
-height: 100vh;
+position: relative;
+top: 0;
+display: flex;
+justify-content: center;
+align-items: end;
+@media (max-width:700px){
+
+    height: 115px;
+    }
+
+`
+
+let MainTitle = styled.div`
+font-size: 2em;
+margin-bottom: 10px;
+font-family: 'Spicy Rice', serif;
+    font-weight: 200;
+    font-style: normal;
+
+
+@media (max-width:700px){
+    font-size: 1.6em;
+    margin-bottom: 10px;
+       
+    }
+`
+
+let SimpleMain = styled.div`
+width: 100%;
+/* height: 100vh; */
+
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
 `
 
-let Title = styled.div`
-font-size: 2em;
-background-color: white;
-padding: 2% 5%;
-border-radius: 15px;
+let WholeMain = styled.div`
+width: 100%;
+/* height: 100vh;    */
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+/* flex-wrap: wrap; */
+position: relative;
 
-margin: 10px 0;
 `
+
+let BackyOverlay = styled.div`
+background: linear-gradient(-45deg, #9ed5d5 0%, blue 100%);
+width: 100%;
+height: 100vh;
+display: flex;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+`
+
+
+
 
 const LoadingText = styled.p`
     font-size: 1.5em;
 `;
 
-const Carousel = styled.div`
+const MainCarousel = styled.div`
     /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 90%;
-    /* background-color: #a08810; */
+    max-width: 95%;
+    max-height: 95%;
+    /* background-color: #7a7a7a61; */
+    padding: 2%;
+    border-radius: 15px;
+    /* box-shadow: inset 8px 8px 10px #30303061; */
+    @media (max-width: 500px){
+        width: 90%;
+
+    
+    }
 
    
 `;
 
-const CarouselItem = styled.div`
+const ContainerCarousel = styled.div`
     /* margin: 20px;
     padding: 20px; */
     border: 1px solid #ddd;
@@ -172,16 +241,25 @@ const CarouselItem = styled.div`
     text-align: center;
     ///YES WITH
     width:80%;
-    /* background-color: #141414d4; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2%;
+    background-color: #141414a2;
+    @media (max-width:700px){
+        width: 95%;
+       
+    }
 `;
 
 const CarouselSection = styled.div`
   display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     /* flex-direction: column; */
-    width:100%;
-    background-color: #262626d7;
+    width:100%; 
+    /* background-color: #26262683; */
     border-radius: 15px;
     margin: 1% 0;
     @media (max-width: 500px){
@@ -196,11 +274,16 @@ let CarouselContainer = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
-flex-direction: column;
+/* flex-direction: column; */
+background-color: #1d1d1d99;
+
 width: 40%;
 padding: 2%;
 border-radius: 15px;
-
+@media (max-width:700px){
+        width: 90%;
+       
+    }
 `
 
 
@@ -218,17 +301,23 @@ const ItemTitle = styled.h2`
     border-radius: 15px;
 `;
 
-const ItemImage = styled.img`
+const ImageCarousel = styled.img`
+
 /* height: 100%; */
 border-radius: 15px;
     /* margin-bottom: 10px; */
-    width: 60%;
-    @media (max-width:500px){
-        width: 90%;
+    /* width: 80%; */
+    width: auto;
+    max-height: 300px; 
+    box-shadow: 8px 8px 8px #00000066;
+
+    @media (max-width:700px){
+        width: 96%;
+        max-height: none;
     }
 `;
 
-const ItemDescription = styled.p`
+const DescriptionCarousel = styled.p`
     font-size: 1em;
     margin-bottom: 10px;
     /* height: 60%; */
@@ -236,28 +325,26 @@ const ItemDescription = styled.p`
     background-color: white;
     border-radius: 15px;
     padding: 5px 10px;
-    @media (max-width:500px){
-        width: 90%;
-        background-color: white;
-        font-size: 1em;
-    margin-bottom: 10px;
-    /* height: 60%; */
+    box-shadow: 8px 8px 8px #00000066;
 
-    background-color: white;
-    border-radius: 15px;
-    padding: 5px 10px;
+    @media (max-width:700px){
+        width: 100%;
+       
     }
 `;
 
 const ItemLink = styled.a`
-background-color: #efefef;
+background-color: #b7400d;
 
 text-decoration: none;
-border-radius: 15px;
-color: #101010;
+border-radius: 9px;
+color: #ffffff;
+font-weight: 500;
+padding: 1% 5%;
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
+    width: 80%;
 
     &:hover {
         text-decoration: underline;
