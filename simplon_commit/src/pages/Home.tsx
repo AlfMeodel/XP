@@ -166,7 +166,7 @@ const CarouselItem = styled.div`
     /* margin: 20px;
     padding: 20px; */
     border: 1px solid #ddd;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
@@ -182,9 +182,12 @@ const CarouselSection = styled.div`
     /* flex-direction: column; */
     width:100%;
     background-color: #262626d7;
+    border-radius: 15px;
+    margin: 1% 0;
     @media (max-width: 500px){
     flex-direction: column;
-    border-radius: 15px;
+
+    
     }
   
 `
@@ -195,8 +198,8 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 width: 40%;
-border:3px solid blue;
 padding: 2%;
+border-radius: 15px;
 
 `
 
@@ -212,11 +215,12 @@ const ItemTitle = styled.h2`
     justify-content: center;
     align-items: center;
     padding: 1% 0;
+    border-radius: 15px;
 `;
 
 const ItemImage = styled.img`
 /* height: 100%; */
-    border-radius: 10px;
+border-radius: 15px;
     /* margin-bottom: 10px; */
     width: 60%;
     @media (max-width:500px){
@@ -228,12 +232,31 @@ const ItemDescription = styled.p`
     font-size: 1em;
     margin-bottom: 10px;
     /* height: 60%; */
+
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px 10px;
+    @media (max-width:500px){
+        width: 90%;
+        background-color: white;
+        font-size: 1em;
+    margin-bottom: 10px;
+    /* height: 60%; */
+
+    background-color: white;
+    border-radius: 15px;
+    padding: 5px 10px;
+    }
 `;
 
 const ItemLink = styled.a`
+background-color: #efefef;
+
+text-decoration: none;
+border-radius: 15px;
+color: #101010;
     display: block;
     margin-bottom: 10px;
-    color: #007BFF;
     text-decoration: none;
 
     &:hover {
@@ -264,13 +287,13 @@ const Arrow = styled.div`
 
 const ArrowLeft = styled(Arrow)`
     left: 20px;
-    background-color:#000000bb;
+    /* background-color:#000000bb; */
     color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 15px;
 `;
 
 const ArrowRight = styled(Arrow)`
