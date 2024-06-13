@@ -138,7 +138,7 @@ export default Home;
 
 let MarginContainer = styled.div`
 height: 140px;
-background-color: #4b8c1a6b;
+background-color: #0f8496;
 color: white;
 border-radius: 0 0 20px 20px ;
 box-shadow: 6px 6px 6px #00000062;
@@ -193,7 +193,7 @@ position: relative;
 `
 
 let BackyOverlay = styled.div`
-background: linear-gradient(-45deg, #9ed5d5 0%, blue 100%);
+background: linear-gradient(-45deg, #9ed5d5 0%, #212137 100%);
 width: 100%;
 height: 100vh;
 display: flex;
@@ -236,7 +236,7 @@ const ContainerCarousel = styled.div`
     padding: 20px; */
     border: 1px solid #ddd;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow:inset 0  4px 8px , 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
     ///YES WITH
@@ -246,7 +246,7 @@ const ContainerCarousel = styled.div`
     align-items: center;
     flex-direction: column;
     padding: 2%;
-    background-color: #141414a2;
+    background-color: #1414146d;
     @media (max-width:700px){
         width: 95%;
        
@@ -334,20 +334,24 @@ const DescriptionCarousel = styled.p`
 `;
 
 const ItemLink = styled.a`
-background-color: #b7400d;
+/* background-color: #b7400d; */
+border: 1px solid white;
 
 text-decoration: none;
 border-radius: 9px;
+
 color: #ffffff;
 font-weight: 500;
 padding: 1% 5%;
     display: block;
-    margin-bottom: 10px;
+margin: 2% 0;
     text-decoration: none;
-    width: 80%;
+    /* width: 80%; */
+    transition: 0.3s ease-in-out;
 
     &:hover {
         text-decoration: underline;
+        background-color: #b7400d;
     }
 `;
 
@@ -373,7 +377,8 @@ const Arrow = styled.div`
 `;
 
 const ArrowLeft = styled(Arrow)`
-    left: 20px;
+    left: 10px;
+    top: 25rem;
     /* background-color:#000000bb; */
     color: white;
     padding: 10px 20px;
@@ -381,8 +386,35 @@ const ArrowLeft = styled(Arrow)`
     justify-content: center;
     align-items: center;
     border-radius: 15px;
+    font-size: 4em;
+    transition: 0.3s ease-in-out;
+    transform-style: none;
+
+
+    @media (max-width: 700px){
+        color: white;
+        font-size: 2em;
+        top: 20rem;
+    }
 `;
 
 const ArrowRight = styled(Arrow)`
-    right: 20px;
+    right: 10px;
+    top: 25rem;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    font-size: 4em;
+    transition: 0.3s ease-in-out;
+    transform-style: none;
+
+
+    @media (max-width: 700px){
+        color: white;
+        font-size: 2em;
+        top: 20rem;
+    }
 `;
