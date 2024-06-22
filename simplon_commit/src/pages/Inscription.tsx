@@ -1,47 +1,42 @@
-import { Button, Form, Input, message } from 'antd'
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import styled from 'styled-components'
-import { CreateUsers, UserResponse, Values } from '../components/firebase/Users'
-import { useDispatch } from 'react-redux'
-import { AfficherSpiner } from '../components/redux/chargementSlice'
-import { FaCircleInfo } from 'react-icons/fa6'
+import { Button, Form, Input, message } from 'antd';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { CreateUsers, UserResponse, Values } from '../components/firebase/Users';
+import { useDispatch } from 'react-redux';
+import { AfficherSpiner } from '../components/redux/chargementSlice';
+import { FaCircleInfo } from 'react-icons/fa6';
 
 const Inscription = () => {
+    let navigate = useNavigate();
+    let dispatch = useDispatch();
+    let [ouvertureInfo, setOuvertureInfo] = useState(false);
 
-    let navigate = useNavigate()
-    let dispatch = useDispatch()
-    //BULLE INFO
-    let [ouvertureInfo, setOuvertureInfo] = useState(false)
     let interrupteurBulleInfo = () => {
-        setOuvertureInfo(!ouvertureInfo)
-    }
+        setOuvertureInfo(!ouvertureInfo);
+    };
 
     let onFinish = async (values: unknown) => {
         try {
-            let valuesProps = values as Values
-            dispatch(AfficherSpiner(true))
-            let response = await CreateUsers(valuesProps) as UserResponse
-            dispatch(AfficherSpiner(false))
+            let valuesProps = values as Values;
+            dispatch(AfficherSpiner(true));
+            let response = await CreateUsers(valuesProps) as UserResponse;
+            dispatch(AfficherSpiner(false));
             if (response.validation) {
-                message.success(response.message)
-                navigate("/connexion")
-
+                message.success(response.message);
+                navigate("/connexion");
             } else {
-                throw new Error(response.message)
+                throw new Error(response.message);
             }
-
         } catch (error: any) {
-            message.error(error.message)
+            message.error(error.message);
         }
-    }
+    };
 
     return (
         <Backy>
-
             <Formulaire>
-                <AForm onFinish={onFinish}>
-
+                <AForm onFinish={onFinish} layout="vertical">
                     <FormMainTitle>
                         <h2>Inscription</h2>
                         <OverInfo onClick={interrupteurBulleInfo}>
@@ -53,60 +48,58 @@ const Inscription = () => {
                             <strong> Connexion sans inscription : </strong>
                         </OverBulleInfoTitle>
                         <OverBulleInfoSection>
-                            <strong>nom</strong> : gg
+                            <strong>nom</strong> : test22@gmail.com
                         </OverBulleInfoSection>
                         <OverBulleInfoSection>
-                            <strong> password </strong>: gg
+                            <strong> password </strong>: 22
                         </OverBulleInfoSection>
                     </OverBulleInfo>
-
                     <FormSection>
-                        <FormTitle>
-                            Nom
-                        </FormTitle>
+                        <FormTitle>Nom</FormTitle>
+                        <AFormItem
 
-                        <AFormItem label="name" name="name" noStyle>
-                            <AInput placeholder='Name ..' />
+                            name="name"
+                            rules={[{ required: true, message: 'Veuillez saisir votre nom!' }]}
+                        >
+                            <AInput placeholder='Nom ..' />
                         </AFormItem>
                     </FormSection>
-
                     <FormSection>
-                        <FormTitle>
-                            Email
-                        </FormTitle>
-
-                        <AFormItem label="email" name="email" noStyle>
+                        <FormTitle>Email</FormTitle>
+                        <AFormItem
+                            name="email"
+                            rules={[
+                                { type: 'email', message: 'L\'adresse email n\'est pas valide!' },
+                                { required: true, message: 'Veuillez saisir votre email!' }
+                            ]}
+                        >
                             <AInput placeholder='Email ..' />
                         </AFormItem>
                     </FormSection>
-
                     <FormSection>
-                        <FormTitle>
-                            Password
-                        </FormTitle>
-
-                        <AFormItem label="password" name="password" noStyle>
-                            <AInput placeholder='Password ..' />
+                        <FormTitle>Mot de passe</FormTitle>
+                        <AFormItem
+                            name="password"
+                            rules={[{ required: true, message: 'Veuillez saisir votre mot de passe!' }]}
+                        >
+                            <AInput placeholder='Mot de passe ..' type="password" />
                         </AFormItem>
                     </FormSection>
-
                     <ASubmitBtn htmlType='submit' ghost>
                         Inscription
                     </ASubmitBtn>
-
                     <FormLink to="/connexion" key="connexionBtn" ouvertureInfo={ouvertureInfo}>
-                        Vous avez un compte ? <strong> Connectez vous </strong>
+                        Vous avez un compte ? <strong> Connectez-vous </strong>
                     </FormLink>
-
                 </AForm>
             </Formulaire>
         </Backy>
-    )
+    );
 }
 
-export default Inscription
+export default Inscription;
 
-//ANTD MEF
+// ANTD MEF
 
 let OverBulleInfoTitle = styled.div`
 color: white;
@@ -114,17 +107,13 @@ color: white;
 
 let OverBulleInfo = styled.div<{ ouvertureInfo: boolean }>`
 transition: 0.3s ease-in-out;
-
 display: ${(props: { ouvertureInfo: boolean }) => props.ouvertureInfo ? "flex" : "none"};
-/* background-color: white; */
 padding: 5% 10%;
 border-radius: 5px;
 justify-content: flex-start;
 align-items: center;
 flex-direction: column;
-
 border: 1px dashed white;
-
 `
 
 let OverBulleInfoSection = styled.div`
@@ -142,18 +131,15 @@ align-items: center;
 let OverInfo = styled.div`
 font-size: 2.1em;
 color: white;
-
 display: flex;
 justify-content: center;
 align-items: center;
 transition: 0.3s ease-in-out;
 margin-left: 20px;
-
 &:hover{
     transform: scale(1.05);
 }
 `
-
 
 let FormMainTitle = styled.div`
 background-color: #00000055;
@@ -161,7 +147,6 @@ box-shadow:inset 4px 4px 4px black;
 color: white;
 padding: 3%;
 border-radius: 8px;
-/* font-size: 2em; */
 margin-bottom: 20px;
 display: flex;
 justify-content: center;
@@ -174,19 +159,15 @@ color: white;
 margin-top: 15px;
 padding: 5px 10px;
 border-radius: 8px;
-
 background-color: ${(props: { ouvertureInfo: boolean }) =>
         props.ouvertureInfo ? "green" : "#0f8496"
     };
-
 border: ${(props: { ouvertureInfo: boolean }) =>
         props.ouvertureInfo ? "2px dashed white" : "px solid transparent"
     }
 `;
 
-let FormSection = styled.div`
-
-`
+let FormSection = styled.div``
 
 let FormTitle = styled.div`
 color: white;
@@ -195,8 +176,6 @@ display: flex;
 justify-content: flex-start;
 align-items: center;
 `
-
-//ANTD MECA
 
 let AForm = styled(Form)`
 display: flex;
@@ -208,12 +187,10 @@ let AFormItem = styled(Form.Item)``
 let AInput = styled(Input)`
 z-index: 0;
 box-shadow:inset 2px 2px 4px black;
-
 `
 
 let ASubmitBtn = styled(Button)`
 margin-top: 35px;
-
 @media (max-width:750px){
     margin-top: 25px;
 }
@@ -236,7 +213,6 @@ font-size: 5.5em;
 color: white;
 box-shadow: 6px 6px 9px #000000d4, inset -3px -3px 4px #1e1e1e87;
 border: 2px solid #ffffff63;
-
 @media (max-width:750px){
     padding: 5% 10%;
 }

@@ -6,9 +6,8 @@ import CryptoJS from 'crypto-js'
 export interface Values {
     name: string,
     email: string,
-    password: string
+    password: string,
 }
-
 export interface UserResponse {
     message: string,
     validation: true,

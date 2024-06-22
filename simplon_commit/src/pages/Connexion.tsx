@@ -9,10 +9,10 @@ import { Login } from '../components/redux/protectedSlice'
 import { FaCircleInfo } from 'react-icons/fa6'
 
 const Connexion = () => {
-
     let navigate = useNavigate()
     let dispatch = useDispatch()
     let [ouvertureInfo, setOuvertureInfo] = useState(false)
+
     let interrupteurBulleInfo = () => {
         setOuvertureInfo(!ouvertureInfo)
     }
@@ -30,10 +30,7 @@ const Connexion = () => {
                     ...response.dataUser, password: ""
                 }))
                 dispatch(Login())
-
                 navigate("/")
-
-
             } else {
                 throw new Error(response.message)
             }
@@ -46,7 +43,7 @@ const Connexion = () => {
     return (
         <Backy>
             <Formulaire>
-                <AForm onFinish={onFinish}>
+                <AForm onFinish={onFinish} layout="vertical">
                     <FormMainTitle>
                         <h2>Connexion</h2>
                         <OverInfo onClick={interrupteurBulleInfo}>
@@ -58,41 +55,43 @@ const Connexion = () => {
                             <strong> Connexion sans inscription : </strong>
                         </OverBulleInfoTitle>
                         <OverBulleInfoSection>
-                            <strong>nom</strong> : gg
+                            <strong>nom</strong> : test22@gmail.com
                         </OverBulleInfoSection>
                         <OverBulleInfoSection>
-                            <strong> password </strong>: gg
+                            <strong> password </strong>: 22
                         </OverBulleInfoSection>
                     </OverBulleInfo>
-
                     <FormSection>
                         <FormTitle>
                             Email
                         </FormTitle>
-
-                        <AFormItem label="email" name="email" noStyle>
+                        <AFormItem
+                            name="email"
+                            rules={[
+                                { type: 'email', message: 'L\'adresse email n\'est pas valide!' },
+                                { required: true, message: 'Veuillez saisir votre email!' }
+                            ]}
+                        >
                             <AInput placeholder='Email ..' />
                         </AFormItem>
                     </FormSection>
-
                     <FormSection>
                         <FormTitle>
-                            Password
+                            Mot de passe
                         </FormTitle>
-
-                        <AFormItem label="password" name="password" noStyle>
-                            <AInput placeholder='Password ..' />
+                        <AFormItem
+                            name="password"
+                            rules={[{ required: true, message: 'Veuillez saisir votre mot de passe!' }]}
+                        >
+                            <AInput placeholder='Mot de passe ..' type="password" />
                         </AFormItem>
                     </FormSection>
-
                     <ASubmitBtn htmlType='submit' ghost>
                         Connexion
                     </ASubmitBtn>
                     <FormLink to="/inscription" key="inscriptionBtn">
-                        Pas encore de compte ? <strong> Inscrivez vous </strong>
+                        Pas encore de compte ? <strong> Inscrivez-vous </strong>
                     </FormLink>
-
-
                 </AForm>
             </Formulaire>
         </Backy>
@@ -101,24 +100,19 @@ const Connexion = () => {
 
 export default Connexion
 
-
 let OverBulleInfoTitle = styled.div`
 color: white;
 `
 
 let OverBulleInfo = styled.div<{ ouvertureInfo: boolean }>`
 transition: 0.3s ease-in-out;
-
 display: ${(props: { ouvertureInfo: boolean }) => props.ouvertureInfo ? "flex" : "none"};
-/* background-color: white; */
 padding: 5% 10%;
 border-radius: 5px;
 justify-content: flex-start;
 align-items: center;
 flex-direction: column;
-
 border: 1px dashed white;
-
 `
 
 let OverBulleInfoSection = styled.div`
@@ -136,20 +130,15 @@ align-items: center;
 let OverInfo = styled.div`
 font-size: 2.1em;
 color: white;
-
 display: flex;
 justify-content: center;
 align-items: center;
 transition: 0.3s ease-in-out;
 margin-left: 20px;
-
 &:hover{
     transform: scale(1.05);
 }
 `
-
-
-//ANTD MEF
 
 let FormMainTitle = styled.div`
 background-color: #00000055;
@@ -157,7 +146,6 @@ box-shadow:inset 4px 4px 4px black;
 color: white;
 padding: 3%;
 border-radius: 8px;
-/* font-size: 2em; */
 margin-bottom: 20px;
 display: flex;
 justify-content: center;
@@ -183,8 +171,6 @@ justify-content: flex-start;
 align-items: center;
 `
 
-//ANTD MECA
-
 let AForm = styled(Form)`
 display: flex;
 flex-direction: column;
@@ -194,7 +180,6 @@ let AFormItem = styled(Form.Item)``
 
 let AInput = styled(Input)`
 box-shadow:inset 2px 2px 4px black;
-
 `
 
 let ASubmitBtn = styled(Button)`
@@ -218,7 +203,6 @@ font-size: 5.5em;
 color: white;
 box-shadow: 6px 6px 9px #000000d4, inset -3px -3px 4px #1e1e1e87;
 border: 2px solid #ffffff63;
-
 @media (max-width:750px){
     padding: 5% 10%;
 }
