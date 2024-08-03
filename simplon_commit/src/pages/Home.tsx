@@ -83,7 +83,7 @@ const Home: React.FC = () => {
     return (
         <SimpleMain>
             <MarginContainer>
-                <MainTitle>Anniversaires du Jour</MainTitle>
+                <MainTitle>Anniversaires du Jour test</MainTitle>
             </MarginContainer>
             <WholeMain>
 
